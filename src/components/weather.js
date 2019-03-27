@@ -1,15 +1,19 @@
 import React from 'react';
 
 class Weather extends React.Component {
-    render (){
-        const data = this.props.data;
-        const message = data && 'Ведите название города для отображения погоды';
-        return(
+
+    render() {
+        return (
             <div>
-               <h3>{message}</h3>
+                <p>{this.props.city}</p>
+                <p>{Math.ceil(this.props.temp)}°</p>
+                <p>{this.props.wind} м/с</p>
+                <p>{this.props.description}</p>
+                <p>{this.props.humidity}%</p>
             </div>
         )
     }
 
 }
+
 export default Weather
