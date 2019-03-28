@@ -10,7 +10,6 @@ const API_KEY = 'd022cd263149a8cbbae87cdb92c511b5';
 
 class App extends Component {
     state = {
-        city: null,
         cityName: null,
         temp: null,
         wind: null,
@@ -53,8 +52,8 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Info/>
+            <div >
+                <Info  city={this.state.cityName}/>
                 <Form weatherMethod={this.getWeather}/>
                 <Weather
                     city={this.state.cityName}

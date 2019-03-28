@@ -1,0 +1,102 @@
+body {
+    width: 100 wh;
+    height: 90vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #dc9a89, #8a99e7, #23A6D5, #60d5ca);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    font-family: 'Century Gothic', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    font-size: 3em;
+    font-style: oblique;
+    line-height: 1em;
+    text-align: center;
+    color: #a6e4ff;
+}
+h2 {
+    font-size: 1.5em;
+    font-style: oblique;
+    line-height: 1em;
+    text-align: center;
+    color: #a6e4ff;
+}
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.info {
+    text-align: center;
+}
+
+.input {
+    border: 1px solid #ffffff;
+    background: transparent;
+    font-size: 1.5em;
+    color:white;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    font-style: oblique;
+
+}
+.btn {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #fff6ef;
+    border-radius: 0.6em;
+    color: #fffef5;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+}
+.btn:hover, .btn:focus {
+    color: #000000;
+    outline: 0;
+    box-shadow: 0 0 40px 40px #fffbf5 inset;
+}
