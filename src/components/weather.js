@@ -20,10 +20,13 @@ class Weather extends React.Component {
             return Dozd
         }else if (this.props.description === 'гроза'){
             return Groza
-        }else if (this.props.description === 'снег'){
+        }else if (this.props.description === 'снег' || this.props.description === 'небольшой снегопад'){
             return Sneg
         }else if (this.props.description === 'туман'){
             return Tuman
+        }
+        else {
+            return Pasmurno
         }
     };
 

@@ -9,7 +9,6 @@ body {
     animation: Gradient 15s ease infinite;
     font-family: 'Century Gothic', sans-serif;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 h1 {
@@ -64,10 +63,14 @@ h2 {
 
 .info {
     text-align: center;
+
 }
 .weather{
     font-size: 2em;
     font-style: oblique;
+    justify-content: center;
+    align-content: center;
+
 }
 .img{
     float: left;
@@ -76,7 +79,6 @@ h2 {
 .temp{
     font-size:4em;
     font-style: oblique;
-    float: left;
     margin-left: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -84,12 +86,15 @@ h2 {
 .city{
     font-size:2em;
     font-style: oblique;
-    margin: 0;
+    margin: 0 auto;
+
 }
 .text{
     font-size: 0.8em;
     font-style: oblique;
     margin: 5px;
+    float: left;
+
 }
 
 .input {
@@ -121,8 +126,44 @@ h2 {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 
 }
+.modal {
+    font-style: oblique;
+    margin: 5px;
+    float: left;
+}
 .btn:hover, .btn:focus {
     color: #000000;
     outline: 0;
     box-shadow: 0 0 40px 40px #fffbf5 inset;
+}
+table {
+    display: table;
+    padding: 0.5em 0 0 0;
+    position: relative;
+
+}
+tbody {
+    cursor: pointer;
+    transition: background 9999999s;
+    user-select: none;
+    position: relative;
+
+}
+
+tbody :hover {
+    background-color: #9cc8ff;
+    color: #403E10;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+    position: relative;
+
+}
+td,  th {
+    padding-bottom: 0.5em;
+    padding-top: 0;
+    padding-left: 0.1em;
+    position: relative;
+
 }

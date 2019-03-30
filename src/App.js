@@ -14,28 +14,14 @@ class App extends Component {
         temp: null,
         wind: null,
         description: null,
-        humidity: null
+        humidity: null,
     };
 
-    toLatin = (text) => {
-        const arrru = ['Я', 'я', 'Ю', 'ю', 'Ч', 'ч', 'Ш', 'ш', 'Щ', 'щ', 'Ж', 'ж', 'А', 'а', 'Б', 'б', 'В', 'в', 'Г', 'г', 'Д', 'д', 'Е', 'е', 'Ё', 'ё', 'З', 'з', 'И', 'и', 'Й', 'й', 'К', 'к', 'Л', 'л', 'М', 'м', 'Н', 'н', 'О', 'о', 'П', 'п', 'Р', 'р', 'С', 'с', 'Т', 'т', 'У', 'у', 'Ф', 'ф', 'Х', 'х', 'Ц', 'ц', 'Ы', 'ы', 'Ь', 'ь', 'Ъ', 'ъ', 'Э', 'э'];
-        const arren = ['Ya', 'ya', 'Yu', 'yu', 'Ch', 'ch', 'Sh', 'sh', 'Sh', 'sh', 'Zh', 'zh', 'A', 'a', 'B', 'b', 'V', 'v', 'G', 'g', 'D', 'd', 'E', 'e', 'E', 'e', 'Z', 'z', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'F', 'f', 'H', 'h', 'C', 'c', 'Y', 'y', '`', '`', '\'', '\'', 'E', 'e'];
-        for (let i = 0; i < arrru.length; i++) {
-            let reg = new RegExp(arrru[i], "g");
-            text = text.replace(reg, arren[i]);
-        }
-        return text;
-    };
-
-    getWeather = (event) => {
-        event.preventDefault();
-        const city = this.toLatin((event.target.elements.city.value));
-        axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=metric&lang=ru`)
+    getWeather = (lat,lon) => {
+        axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}9&APPID=${API_KEY}&units=metric&lang=ru`)
             .then(response => {
                 const WeatherData = response.data.list[0];
                 const CountryData = response.data.city;
-                console.log(WeatherData);
-                console.log(CountryData);
                 this.setState({
                     cityName: CountryData.name,
                     temp: WeatherData.main.temp,
@@ -54,7 +40,7 @@ class App extends Component {
         return (
             <div >
                 <Info  city={this.state.cityName}/>
-                <Form weatherMethod={this.getWeather}/>
+                <Form getWeather={this.getWeather} cityName={this.state.cityName}/>
                 <Weather
                     city={this.state.cityName}
                     temp={this.state.temp}
