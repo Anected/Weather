@@ -85,7 +85,23 @@ h2 {
     font-style: oblique;
     justify-content: center;
     align-content: center;
+    vertical-align: middle;
 
+}
+.card{
+    font-size: 0.7em;
+    color: #c5f8ff;
+    margin-top: 50px;
+}
+.cardElement{
+    padding: 0;
+    margin:0 auto;
+
+}
+.cardDiv{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
 }
 .img{
     float: left;
@@ -157,6 +173,7 @@ h2 {
 
 }
 .modal {
+    font-size: 1.2em;
     font-style: oblique;
     margin: 5px;
     float: left;
@@ -220,5 +237,5 @@ h2 {
     padding-top: 0;
     padding-left: 0.1em;
     position: relative;
-    width:25em;
+    width:30em;
 }
