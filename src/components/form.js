@@ -1,6 +1,7 @@
 import React from 'react';
 import RelativePortal from 'react-relative-portal';
 import axios from "axios";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Form extends React.Component {
     state = {
@@ -47,14 +48,16 @@ class Form extends React.Component {
         const {show} = this.state;
         const cityChoice = this.state.cityChoice;
         return (
-            <div>
-
+            <div className={this.props.cityName ? 'divleft':'div'}>
                 <form onChange={this.getCity} onSubmit={this.props.getWeather}>
-                    <div><input className='input' type='text' name='city' placeholder='Введите город'/>
-                        <button className='btn'>⮞</button>
+                    <div><input className='input'
+                                type='text'
+                                name='city'
+                                placeholder='Введите город'/>
+                        <button className={this.props.cityName ? 'btnleft':'btn'}>⮞</button>
                     </div>
                 </form>
-                <div>
+                <div className='standart'>
                     <RelativePortal
                         component="table"
                         left={0}
@@ -64,10 +67,10 @@ class Form extends React.Component {
                         {show && cityChoice && cityChoice.map((city, key) => {
                             const {display_name} = city;
                             return (
-                                <table  key={key}>
-                                    <tbody key={key}>
-                                    <tr key={key} onClick={()=> this.getCityData(city)}>
-                                        <td key={key} >  {display_name}  </td>
+                                <table className='table'  key={key}>
+                                    <tbody className='tbody' key={key}>
+                                    <tr className={this.props.cityName ? 'trleft':'tr'} key={key} onClick={()=> this.getCityData(city)}>
+                                        <td className={this.props.cityName ? 'tdleft':'td'} key={key} >  {display_name}  </td>
                                     </tr>
                                     </tbody>
                                 </table>

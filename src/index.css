@@ -10,6 +10,7 @@ body {
     font-family: 'Century Gothic', sans-serif;
     display: flex;
     justify-content: center;
+    transition: transform is easy;
 }
 h1 {
     font-size: 3em;
@@ -60,6 +61,20 @@ h2 {
         background-position: 0% 50%
     }
 }
+@keyframes slide {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    50% {
+        left: 244px;
+        top: 100px;
+    }
+    100% {
+        left: 488px;
+        top: 0;
+    }
+}
 
 .info {
     text-align: center;
@@ -104,6 +119,17 @@ h2 {
     color:white;
     padding: 0.5em 0.5em 0.5em 0.5em;
     font-style: oblique;
+}
+.inputleft {
+    position:absolute;
+    left: 1%;
+    top: 1%;
+    border: 1px solid #ffffff;
+    background: transparent;
+    font-size: 1.5em;
+    color:white;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    font-style: oblique;
 
 }
 .btn {
@@ -126,31 +152,45 @@ h2 {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 
 }
+.btnleft {
+    visibility: hidden;
+
+}
 .modal {
     font-style: oblique;
     margin: 5px;
     float: left;
 }
+.standart {
+
+}
+.left {
+    display:block;
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    width:50px
+}
+.left tr {max-width:20px;}
+
 .btn:hover, .btn:focus {
     color: #000000;
     outline: 0;
     box-shadow: 0 0 40px 40px #fffbf5 inset;
 }
-table {
+.table {
     display: table;
     padding: 0.5em 0 0 0;
     position: relative;
 
 }
-tbody {
+.tbody {
     cursor: pointer;
     transition: background 9999999s;
     user-select: none;
-    position: relative;
-
 }
 
-tbody :hover {
+.tbody :hover {
     background-color: #9cc8ff;
     color: #403E10;
     transition-delay: 0s;
@@ -159,11 +199,26 @@ tbody :hover {
     transition-timing-function: line;
     position: relative;
 
+
 }
-td,  th {
+.div {
+    display: table;
+}
+.divleft {
+    position:absolute;
+    left: 1%;
+    top: 1%;
+}
+.td,  .th {
     padding-bottom: 0.5em;
     padding-top: 0;
     padding-left: 0.1em;
     position: relative;
-
+}
+.tdleft, .thleft {
+    padding-bottom: 0.5em;
+    padding-top: 0;
+    padding-left: 0.1em;
+    position: relative;
+    width:25em;
 }
