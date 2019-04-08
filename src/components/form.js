@@ -1,7 +1,6 @@
 import React from 'react';
-import RelativePortal from 'react-relative-portal';
 import axios from "axios";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import onClickOutside from "react-onclickoutside";
 
 class Form extends React.Component {
     state = {
@@ -21,8 +20,8 @@ class Form extends React.Component {
     };
 
    getCityData = (city) => {
-       const { lat, lon} = city;
-       this.props.getWeather(lat,lon);
+       const { lat, lon,display_name} = city;
+       this.props.getWeather(lat,lon,display_name);
        this.handleHide();
     };
     _setShowAsyncTimer = null;
@@ -43,14 +42,17 @@ class Form extends React.Component {
             this.setState({show: show});
         }, 0);
     }
-
-    render() {
+    handleClickOutside = () =>{
+        this.handleHide();
+    };
+        render() {
         const {show} = this.state;
         const cityChoice = this.state.cityChoice;
         return (
-            <div className={this.props.cityName ? 'divleft':'div'}>
-                <form onChange={this.getCity} onSubmit={this.props.getWeather}>
-                    <div><input className='input'
+            <div className={this.props.cityName ? 'divleft':'div'} >
+                <form className='form' onChange={this.getCity} onSubmit={this.props.getWeather}>
+                    <div className='form' >
+                        <input className='input'
                                 type='text'
                                 name='city'
                                 placeholder='Введите город'/>
@@ -58,12 +60,6 @@ class Form extends React.Component {
                     </div>
                 </form>
                 <div className='standart'>
-                    <RelativePortal
-                        component="table"
-                        left={0}
-                        top={10}
-                        className='modal'
-                    >
                         {show && cityChoice && cityChoice.map((city, key) => {
                             const {display_name} = city;
                             return (
@@ -77,7 +73,6 @@ class Form extends React.Component {
                             )
                         })
                         }
-                    </RelativePortal>
                 </div>
             </div>
         )
@@ -85,4 +80,5 @@ class Form extends React.Component {
 
 }
 
-export default Form
+
+export default onClickOutside(Form);

@@ -34,7 +34,7 @@ class App extends Component {
         }
     };
 
-    getWeather = (lat,lon) => {
+    getWeather = (lat,lon,display_name) => {
         axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}9&APPID=${API_KEY}&units=metric&lang=ru`)
             .then(response => {
                 const WeatherData = response.data.list[0];
@@ -45,7 +45,7 @@ class App extends Component {
                 console.log(response.data);
                 this.setState({
                     actual:{
-                        cityName: CountryData.name,
+                        cityName: display_name.match(/(\S+)\s/)[0].slice(0, -2),
                         temp: WeatherData.main.temp,
                         wind: WeatherData.wind.speed,
                         description: WeatherData.weather[0].description,
