@@ -1,37 +1,29 @@
 import React from "react";
 import moment from 'moment';
-moment.lang('ru');
 
-class WeatherDiv extends React.Component  {
 
-    checkDay = (item,time) => {
-        console.log(time,time);
-        if (time === item) {
-            return true
-        }
-    };
+class WeatherDiv extends React.Component {
 
     render() {
-        const data = this.props.weatherData.list;
-        console.log(data[0]);
-        const time = moment.unix(data[0].dt).format('YYYY-MM-DD');
-        console.log(time);
+        const data5 = this.props.weatherData.list.slice(1,8);
         return (
             <div>
-                {data.map((item, key) => {
+                {data5.map((item, key) => {
                     const params = item.main;
                     const weather = item.weather;
+                    const wind = item.wind;
                     return (
-                        <div className='card'>
-                            {this.checkDay((moment.unix(item.dt).format('YYYY-MM-DD')),time) &&
+                        <div className='card' key={key}>
                             <div className='cardDiv'>
-                                <p className='cardElement '>{moment.unix(item.dt).format('HH:mm')} </p>
-                                <img className='img' src={this.props.func(weather[0].description)} width="80" height="80"
-                                     alt='Pogoda'/>
-                                <p className='cardElementTemp '>{Math.ceil(params.temp)}°  </p>
+                                <p className='cardElement '>{moment.unix(item.dt).format('DD MMM HH:mm')} </p>
+                                <img className='img' src={this.props.func(weather[0].description)} width="50"
+                                     height="50" alt='Pogoda'/>
+                                <p className='cardElementTemp '>{Math.ceil(params.temp)}° </p>
+                                <p className='weatherInfo '>Влажность : {params.humidity }%</p>
+                                <p className='weatherInfo '>Ветер: {Math.ceil(wind.speed) } м/с,  {this.props.windDirection(wind.deg)}</p>
+                                <p className='weatherInfo '>Давление : {Math.ceil((params.grnd_level))} ({Math.ceil((params.grnd_level) * 0.75006375541921)}) </p>
 
                             </div>
-                            }
                         </div>
                     )
                 })}

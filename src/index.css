@@ -110,26 +110,21 @@ h2 {
 .cardElement {
     padding: 0;
     margin: 5px;
-    color: #c7f1ff;
-
 }
 .cardElementTemp {
-    text-align: center;
-    color: #cec3ff;
     font-size: 2em;
     font-style: oblique;
-    margin: 0.5em 1em 1em 0em;
+    margin: 0.2em 0em 0em 0.2em;
     display: inline-block;
 }
 
 .cardDiv {
-    margin: 15px;
+    border: 1px solid #9cbdff;
+    margin: 60px 20px 20px 20px;
     float: left; /*Задаем обтекание*/
-    line-height: 35px;/*Высота строки +  верт. центрирования текста*/
+    line-height: 50px;/*Высота строки +  верт. центрирования текста*/
     font-size: 0.8em;
-    background: #9a75ff;
-    color: white;
-    width: 200px; /*Фиксируем ширину блока*/
+    width: 220px; /*Фиксируем ширину блока*/
     text-align: center; /*Центрируем текст по горизонтали*/
 }
 
@@ -167,13 +162,14 @@ h2 {
 .description {
     font-size: 1.5em;
     font-style: oblique;
-    margin: 0 auto;
+    margin: 0px 0px 25px 0px;
 
 }
 
 .text {
     font-size: 0.8em;
     font-style: oblique;
+    margin: 0 auto;
 }
 
 .form {
@@ -304,9 +300,11 @@ h2 {
 
 .tableWeather {
     padding: 0.5em 0 0 0;
-    border: 1px solid black;
     border-collapse: collapse;
     margin: 0 auto;
+    font-size: 1em;
+
+;
 
 }
 .td, .th {
@@ -319,7 +317,21 @@ h2 {
     font-style: oblique;
     margin: 0 auto;
     text-align: center;
-    color: #c4fff7;
 
 }
+.weatherInfo {
+    font-size: 0.8em;
+    font-style: oblique;
+    margin: 0 auto;
+    padding: 0;
+}
+.divright{
+    position:absolute;
+    top:0;
+    right:20px;
+    font-size: 0.8em;
+    font-style: oblique;
+}
+
+
 
