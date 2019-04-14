@@ -93,30 +93,44 @@ h2 {
     -webkit-align-items: center;
     align-items: center;
 }
+
 .weatherDiv {
     font-size: 2em;
     font-style: oblique;
 }
+
 .card {
-    font-size: 0.7em;
-    color: #c5f8ff;
-    margin-top: 50px;
+    display: inline-block;
+    margin: 0 auto;/*центрируем ее*/
+}
+.card :last-child {
+    margin-right: 0px;/*Убираем поле последнего div-а*/
 }
 
 .cardElement {
     padding: 0;
     margin: 5px;
+    color: #c7f1ff;
 
+}
+.cardElementTemp {
+    text-align: center;
+    color: #cec3ff;
+    font-size: 2em;
+    font-style: oblique;
+    margin: 0.5em 1em 1em 0em;
+    display: inline-block;
 }
 
 .cardDiv {
-    margin: 0;
-    padding: 0;
-    width: 15em;
-    height: 5em;
-    font-size: 0.7em;
-    background: #8a99e7;
-
+    margin: 15px;
+    float: left; /*Задаем обтекание*/
+    line-height: 35px;/*Высота строки +  верт. центрирования текста*/
+    font-size: 0.8em;
+    background: #9a75ff;
+    color: white;
+    width: 200px; /*Фиксируем ширину блока*/
+    text-align: center; /*Центрируем текст по горизонтали*/
 }
 
 .img {
@@ -127,10 +141,16 @@ h2 {
 
 }
 
+.imgDiv {
+    display: inline-block;
+    margin: 0;
+
+}
+
 .temp {
     font-size: 4em;
     font-style: oblique;
-    margin: 0.2em 0em 0 0 ;
+    margin: 0.2em 0em 0 0;
     display: inline-block;
 
 }
@@ -155,10 +175,12 @@ h2 {
     font-size: 0.8em;
     font-style: oblique;
 }
+
 .form {
-    margin:5px;
-    padding:0;
+    margin: 5px;
+    padding: 0;
 }
+
 .input {
     border: 1px solid #ffffff;
     background: transparent;
@@ -169,6 +191,7 @@ h2 {
     position: relative;
 
 }
+
 .btn {
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -198,8 +221,8 @@ h2 {
 .standart {
     font-size: 1.2em;
     font-style: oblique;
-    margin:0 auto;
-    display:table;
+    margin: 0 auto;
+    display: table;
 }
 
 .left {
@@ -220,14 +243,14 @@ h2 {
     box-shadow: 0 0 40px 40px #fffbf5 inset;
 }
 
-.table {
-    background-color: rgba(255,0,0,0.6);
+.tableMod {
+    background-color: rgba(255, 0, 0, 0.6);
     padding: 0.5em 0 0 0;
     position: relative;
     margin: 3px;
 }
 
-.tbody {
+.tbodyMod {
     cursor: pointer;
     transition: background 9999999s;
     -webkit-user-select: none;
@@ -236,7 +259,7 @@ h2 {
     user-select: none;
 }
 
-.tbody :hover {
+.tbodyMod :hover {
     background-color: #9cc8ff;
     color: #403E10;
     transition-delay: 0s;
@@ -249,19 +272,20 @@ h2 {
 .div {
     text-align: center;
     display: inline-block;
-    margin:5px;
+    margin: 5px;
 }
+
 
 .divleft {
     display: inline-block;
     position: absolute;
     left: 1%;
     top: 1%;
-    margin:5px;
-    width:23%;
+    margin: 5px;
+    width: 23%;
 }
 
-.td, .th {
+.tdMod, .thMod {
     padding-bottom: 0.5em;
     padding-top: 0;
     padding-left: 0.1em;
@@ -277,3 +301,25 @@ h2 {
     width: 25em;
     max-width: 30em;
 }
+
+.tableWeather {
+    padding: 0.5em 0 0 0;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 0 auto;
+
+}
+.td, .th {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+.time{
+    font-size: 1.2em;
+    font-style: oblique;
+    margin: 0 auto;
+    text-align: center;
+    color: #c4fff7;
+
+}
+

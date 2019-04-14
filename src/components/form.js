@@ -55,18 +55,19 @@ class Form extends React.Component {
                         <input className='input'
                                 type='text'
                                 name='city'
-                                placeholder='Введите город'/>
-                        <button className={this.props.cityName ? 'btnleft':'btn'}>⮞</button>
+                                placeholder='Введите город'
+                                onClick={() => this.setState({show:true})}
+                               />
                     </div>
                 </form>
                 <div className='standart'>
                         {show && cityChoice && cityChoice.map((city, key) => {
                             const {display_name} = city;
                             return (
-                                <table className='table'  key={key}>
-                                    <tbody className='tbody' key={key}>
-                                    <tr className={this.props.cityName ? 'trleft':'tr'} key={key} onClick={()=> this.getCityData(city)}>
-                                        <td className={this.props.cityName ? 'tdleft':'td'} key={key} >  {display_name}  </td>
+                                <table className='tableMod'  key={key}>
+                                    <tbody className='tbodyMod' key={key}>
+                                    <tr className={this.props.cityName ? 'trleft':'trMod'} key={key} onClick={()=> this.getCityData(city)}>
+                                        <td className={this.props.cityName ? 'tdleft':'tdMod'} key={key} >  {display_name}  </td>
                                     </tr>
                                     </tbody>
                                 </table>
