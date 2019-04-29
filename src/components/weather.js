@@ -10,33 +10,42 @@ import NextDays from './nextDays.js'
 import moment from 'moment'
 import 'moment/locale/ru'
 
+const imgs ={
+    Sunny,
+    Rain,
+    Thunderstorm,
+    Cloudy,
+    Snow,
+    Mist,
+};
+const match ={
+    Cloudy:['облачно', 'пасмурно'],
+    Sunny:['солнечно', 'ясно'],
+    Rain:['дождь','сильный дождь', 'слабый дождь'],
+    Snow:['снег', 'небольшой снегопад'],
+    Mist:['туман'],
+    Thunderstorm:['гроза']
+};
 moment.locale('ru');
 
 class Weather extends React.Component {
+    state={
+      clickedData:[]
+    };
     capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
-
     chooseImg = (description) => {
-        if (description === 'облачно' || description === 'пасмурно') {
-            return Cloudy
+        for (let key in match){
+            if (match[key].includes(description)){
+                return imgs[key]
+            }
         }
-        else if (description === 'солнечно' || description === 'ясно') {
-            return Sunny
-        } else if (description === 'дождь' || description === 'сильный дождь' || description === 'слабый дождь') {
-            return Rain
-        } else if (description === 'гроза') {
-            return Thunderstorm
-        } else if (description === 'снег' || description === 'небольшой снегопад') {
-            return Snow
-        } else if (description === 'туман') {
-            return Mist
-        }
-        else {
-            return Cloudy
-        }
+        return imgs.Cloudy
     };
-
+    updateData = (value) => {
+        this.setState({clickedData:value})
+    };
     windDirection = (angle) => {
         if (angle > 337.5 && angle <= 22.5) {
             return ('С')
@@ -67,19 +76,19 @@ class Weather extends React.Component {
                 <div className='weather'>
                     <div className='weatherdiv'>
                         <p className='city'>{this.props.city}</p>
-                        <p className='time'>{(now.format('dddd, DD MMMM  ')).replace(/(^|\s)\S/g, l => l.toUpperCase())} </p>
+                        <p className='time'> {(now.format('dddd, DD MMMM  ')).replace(/(^|\s)\S/g, l => l.toUpperCase())} </p>
                         <img className='img' src={this.chooseImg(this.props.description)} width="150" height="150"
                              alt='Pogoda'/>
                         <h1 className='temp'>{Math.ceil(this.props.temp)}°</h1>
-                        <p className='description'>{this.capitalizeFirstLetter(this.props.description)} </p>
+                        {this.props.description && <p className='description'>{this.capitalizeFirstLetter(this.props.description)} </p>}
                         <p className='text'>Влажность: {this.props.humidity}% </p>
                         <p className='text'>Ветер: {Math.ceil(this.props.wind)} м/с
                             , {this.windDirection(this.props.windDir)} </p>
-                        <p className='text'>Давление гПа (мм. рт.
-                            ст.): {Math.ceil((this.props.pressure))} ({Math.ceil((this.props.pressure) * 0.75006375541921)}) </p>
+                        <p className='text'>Давление  : {Math.ceil((this.props.pressure) * 0.75006375541921)} мм. рт.
+                            ст. </p>
                     </div>
-                    <WeatherDiv weatherData={this.props.data} func={this.chooseImg} windDirection={this.windDirection}/>
-                    <NextDays data={this.props.data} sunset={this.props.sunset} sunrise={this.props.sunrise}/>
+                    <NextDays data={this.props.data} sunset={this.props.sunset} sunrise={this.props.sunrise} func={this.chooseImg} updateData={this.updateData}/>
+                    <WeatherDiv weatherData={this.props.data} func={this.chooseImg} windDirection={this.windDirection} clickedData={this.state.clickedData}/>
 
                 </div>
                 }
